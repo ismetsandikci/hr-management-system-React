@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Table, Button, Header, Icon } from "semantic-ui-react";
 import CandidateService from "../../services/candidateService";
+import { Link } from "react-router-dom";
 
 export default function CandidatesList() {
   const [candidates, setCandidates] = useState([]);
@@ -39,7 +40,9 @@ export default function CandidatesList() {
               <Table.Cell>{candidate.nationalityId}</Table.Cell>
               <Table.Cell>{candidate.birthDate}</Table.Cell>
               <Table.Cell>
-                <Button>View</Button>
+                <Button as={Link} to={`/candidates/${candidate.id}`}>
+                  View
+                </Button>
               </Table.Cell>
             </Table.Row>
           ))}
